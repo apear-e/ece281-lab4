@@ -79,7 +79,6 @@ entity elevator_controller_fsm is
 		 );
 end elevator_controller_fsm;
 
- 
 architecture Behavioral of elevator_controller_fsm is
 
     -- Below you create a new variable type! You also define what values that 
@@ -121,11 +120,10 @@ begin
 	-- State register ------------
 	state_register : process(i_clk)
 	begin
-        
-        if i_reset = '1' then
+        if  rising_edge(i_clk) then
+            if i_reset = '1' then
                current_floor <= floor2;
-        else
-            if rising_edge(i_clk) then
+            else
                 current_floor <= next_floor;
             end if;
         end if;

@@ -78,7 +78,6 @@ begin
 	countClock_proc : process(i_clk, i_reset)
 	begin
 		if i_reset = '1' then
-			f_count <= 0;
 			f_clk	<= '0';
 		else
 			if rising_edge(i_clk) then			
